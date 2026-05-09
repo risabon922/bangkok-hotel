@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐘 バンコク女子旅 ホテル比較 7/11-14</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --plum: #4A1660;
+    --orchid: #8B3FA8;
+    --orchid-light: #C77DDB;
+    --gold: #D4A017;
+    --gold-light: #F0CC6A;
+    --teal: #1A7A6E;
+    --teal-light: #4EBFAD;
+    --coral: #E8654A;
+    --rose: #F2C4CE;
+    --cream: #FDF8F2;
+    --parchment: #FAF0E6;
+    --ink: #2A1A35;
+    --muted: #6B5A7E;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* === HEADER === */
+  .hero {
+    background: linear-gradient(150deg, #F9C74F 0%, #F4845F 40%, #E07A5F 70%, #F0A500 100%);
+    padding: 44px 24px 52px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 10% 90%, rgba(255,255,255,0.18) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 10%, rgba(255,255,255,0.12) 0%, transparent 45%);
+  }
+  /* Decorative tropical dots */
+  .hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle, rgba(255,255,255,0.5) 3px, transparent 3px),
+      radial-gradient(circle, rgba(255,255,255,0.25) 2px, transparent 2px);
+    background-size: 48px 48px, 24px 24px;
+    background-position: 0 0, 12px 12px;
+    opacity: 0.6;
+  }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero-elephants {
+    display: flex; justify-content: center; gap: 16px; margin-bottom: 14px;
+    font-size: 40px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+  }
+  .hero h1 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.04em;
+    line-height: 1.25;
+    text-shadow: 0 2px 12px rgba(180,80,0,0.25);
+  }
+  .hero-sub {
+    margin-top: 10px;
+    color: rgba(255,255,255,0.92);
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+  .hero-badges {
+    display: flex; justify-content: center; gap: 10px; margin-top: 16px; flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,0.28);
+    border: 1.5px solid rgba(255,255,255,0.7);
+    color: #fff;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  .badge.free-cancel {
+    background: rgba(26,122,110,0.35);
+    border-color: #7EECD8;
+    color: #E0FFF9;
+  }
+
+  /* === SECTION WRAPPER === */
+  .section {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  .section-title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #5C3A80;
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--orchid-light), transparent);
+  }
+
+  /* === MAP === */
+  .map-wrapper {
+    background: #000;
+    border: 1.5px solid var(--orchid-light);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(74,22,96,0.08);
+    line-height: 0;
+  }
+  .map-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .map-caption { line-height: 1.6; }
+  .map-caption {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    padding: 10px;
+    border-top: 1px solid rgba(139,63,168,0.15);
+  }
+
+  /* === HOTEL CARDS === */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 640px) { .cards-grid { grid-template-columns: 1fr; } }
+
+  .hotel-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1.5px solid rgba(139,63,168,0.2);
+    box-shadow: 0 2px 16px rgba(74,22,96,0.07);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .hotel-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(74,22,96,0.14);
+  }
+  .card-photo {
+    height: 160px;
+    display: flex; align-items: flex-end;
+    padding: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-photo-label {
+    background: rgba(0,0,0,0.45);
+    color: white;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    position: absolute; bottom: 10px; right: 10px;
+  }
+  .card-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    z-index: 1;
+  }
+  .card-body { padding: 16px; }
+  .card-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--plum);
+    margin-bottom: 4px;
+  }
+  .card-room {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .card-price-row {
+    display: flex; align-items: baseline; gap: 8px;
+    margin-bottom: 10px;
+  }
+  .card-price {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--plum);
+  }
+  .card-price-label {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .card-tags {
+    display: flex; flex-wrap: wrap; gap: 5px;
+    margin-bottom: 12px;
+  }
+  .tag {
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 10px;
+    font-weight: 500;
+  }
+  .tag-breakfast { background: #FFF0C8; color: #8B6000; }
+  .tag-pool { background: #D4F5EF; color: #0B5C52; }
+  .tag-gym { background: #EDE5FF; color: #4A1660; }
+  .tag-spa { background: #FFE5EF; color: #8B003A; }
+  .tag-kitchen { background: #E8F5E9; color: #1B5E20; }
+  .tag-bts { background: #E3F2FD; color: #0D47A1; }
+  .tag-nopool { background: #F5F5F5; color: #555; }
+
+  .card-access {
+    font-size: 12px;
+    color: var(--muted);
+    display: flex; align-items: center; gap: 5px;
+    margin-bottom: 10px;
+  }
+  .card-link {
+    display: block;
+    text-align: center;
+    background: var(--plum);
+    color: white;
+    padding: 9px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.2s;
+    margin-top: 6px;
+  }
+  .card-link:hover { background: var(--orchid); }
+
+  /* === COMPARISON TABLE === */
+  .comparison-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1.5px solid rgba(139,63,168,0.2);
+    box-shadow: 0 2px 16px rgba(74,22,96,0.06);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    background: white;
+  }
+  thead th {
+    background: var(--plum);
+    color: white;
+    padding: 12px 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  thead th:first-child { text-align: left; }
+  thead th.th1 { background: #5C2076; }
+  thead th.th2 { background: #4E1A6C; }
+  thead th.th3 { background: #3E1258; }
+  thead th.th4 { background: #5C2076; }
+  tbody tr:nth-child(even) td { background: #FDFAFF; }
+  tbody tr:hover td { background: #F5EDFF; }
+  td {
+    padding: 11px 10px;
+    border-bottom: 1px solid rgba(139,63,168,0.1);
+    text-align: center;
+    vertical-align: middle;
+  }
+  td:first-child {
+    text-align: left;
+    font-weight: 500;
+    color: var(--plum);
+    background: #FAF5FF;
+    white-space: nowrap;
+  }
+  .check { color: var(--teal); font-size: 16px; }
+  .cross { color: #CCC; font-size: 14px; }
+  .star { color: var(--gold); }
+  .best-value { background: rgba(212,160,23,0.12) !important; }
+  .highlight-cell {
+    background: rgba(78,191,173,0.12) !important;
+    font-weight: 600;
+    color: var(--teal);
+  }
+
+  /* === PROS/CONS === */
+  .procon-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 640px) { .procon-grid { grid-template-columns: 1fr; } }
+  .procon-card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1.5px solid rgba(139,63,168,0.15);
+  }
+  .procon-header {
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .procon-body { padding: 14px 16px; }
+  .pros, .cons { list-style: none; }
+  .pros li, .cons li {
+    font-size: 13px;
+    padding: 5px 0;
+    display: flex; gap: 7px;
+    line-height: 1.4;
+    border-bottom: 1px solid rgba(139,63,168,0.07);
+  }
+  .pros li:last-child, .cons li:last-child { border-bottom: none; }
+  .pros li::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; }
+  .cons li::before { content: '×'; color: var(--coral); font-weight: 700; flex-shrink: 0; }
+  .procon-divider {
+    margin: 10px 0;
+    border: none;
+    border-top: 1px dashed rgba(139,63,168,0.2);
+  }
+  .pros-label, .cons-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+    margin-top: 10px;
+  }
+  .pros-label { color: var(--teal); }
+  .cons-label { color: var(--coral); }
+
+  /* === HOTEL COLORS === */
+  .h1 { --hc: #3B6E9E; --hc2: #1E4D7A; }
+  .h2 { --hc: #2E7D6B; --hc2: #1A5C4D; }
+  .h3 { --hc: #7A5A2F; --hc2: #5C3D1A; }
+  .h4 { --hc: #6B3080; --hc2: #4A1660; }
+
+  /* === PHOTO PATTERNS === */
+  .photo-1 {
+    background: linear-gradient(135deg, #2C5F8A 0%, #1A3D5C 40%, #0E2438 100%);
+  }
+  .photo-2 {
+    background: linear-gradient(135deg, #1A6B5A 0%, #0E4A3C 40%, #073028 100%);
+  }
+  .photo-3 {
+    background: linear-gradient(135deg, #8B6914 0%, #5C4010 40%, #3A2808 100%);
+  }
+  .photo-4 {
+    background: linear-gradient(135deg, #5C2080 0%, #3A1055 40%, #220A34 100%);
+  }
+  .photo-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+  }
+  .photo-icon { font-size: 40px; display: block; margin-bottom: 6px; }
+  .photo-subtitle { color: rgba(255,255,255,0.6); font-size: 11px; }
+
+  /* === SUMMARY BAR === */
+  .summary-bar {
+    background: linear-gradient(135deg, #C0530A 0%, #D4700F 50%, #B04508 100%);
+    color: white;
+    padding: 20px 24px;
+    margin: 0;
+  }
+  .summary-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    text-align: center;
+  }
+  @media (max-width: 640px) { .summary-inner { grid-template-columns: repeat(2, 1fr); } }
+  .summary-item {}
+  .summary-label { font-size: 11px; color: rgba(255,255,255,0.6); margin-bottom: 4px; }
+  .summary-val { font-size: 18px; font-weight: 700; color: var(--gold-light); }
+  .summary-name { font-size: 12px; color: rgba(255,255,255,0.8); }
+
+  /* === FOOTER === */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+  }
+  footer span { color: var(--gold); }
+
+  .divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(139,63,168,0.3), transparent);
+    margin: 0 20px;
+  }
+
+  .price-note {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 16px;
+    text-align: center;
+    padding: 10px;
+    background: rgba(139,63,168,0.06);
+    border-radius: 8px;
+    border: 1px solid rgba(139,63,168,0.15);
+  }
+
+  /* === CAROUSEL === */
+/* === CAROUSEL CORE === */
+  .carousel {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    background: #111;
+    cursor: grab;
+    user-select: none;
+  }
+  .carousel:active { cursor: grabbing; }
+  .carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.4s ease;
+  }
+  .carousel-slide {
+    flex: 0 0 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.85);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 10;
+    line-height: 1;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .carousel-btn:hover { background: white; }
+  .carousel-btn.prev { left: 8px; }
+  .carousel-btn.next { right: 8px; }
+  .carousel-dots {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+    z-index: 10;
+  }
+  .carousel-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .carousel-dot.active { background: white; }
+  .carousel-num {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    z-index: 10;
+  }
+  .carousel-agoda {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.45);
+    color: white;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    z-index: 10;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-elephants">🐘 🌺 🐘</div>
+    <h1>バンコク女子旅<br>ホテル比較</h1>
+    <p class="hero-sub">2026年 7月11日（土）→ 14日（火）· 3泊 · 2名</p>
+    <div class="hero-badges">
+      <span class="badge free-cancel">✓ 全件キャンセル無料</span>
+      <span class="badge">アクセス抜群のスクンビットエリア</span>
+    </div>
+  </div>
+</div>
+
+<!-- PRICE SUMMARY BAR -->
+<div class="summary-bar">
+  <div class="summary-inner">
+    <div class="summary-item">
+      <div class="summary-label">① ティンツ オブ ブルー</div>
+      <div class="summary-val">38,221円</div>
+      <div class="summary-name">3泊合計・朝食付き</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">② ザ ブレス</div>
+      <div class="summary-val">30,042円</div>
+      <div class="summary-name">3泊合計・朝食なし</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">③ ジャスミン シティ</div>
+      <div class="summary-val">41,943円</div>
+      <div class="summary-name">3泊合計・朝食なし</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">④ ザ コネックス</div>
+      <div class="summary-val">20,368円</div>
+      <div class="summary-name">3泊合計・朝食なし</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAP SECTION -->
+<div class="section">
+  <h2 class="section-title">🗺️ バンコク中心部マップ</h2>
+  <div class="map-wrapper">
+    <img src="https://raw.githubusercontent.com/risabon922/bangkok-hotel/main/35319282-EF06-455E-8449-D884DA0AE862.PNG" alt="バンコクスクンビットエリア ホテル位置マップ" style="width:100%;height:auto;display:block;">
+    <p class="map-caption">🗺️ スクンビットエリア中心部 — 4ホテルはすべてBTSアソーク〜プロンポン間に位置</p>
+  </div>
+</div>
+
+
+<div style="background:linear-gradient(135deg,#FFF8F0 0%,#F0FDF8 100%); border-top:1px solid rgba(240,165,0,0.2); border-bottom:1px solid rgba(26,122,110,0.15);">
+  <div class="section" style="padding-top:32px;padding-bottom:32px;">
+    <h2 class="section-title">✈️ アソーク〜プロンポンエリアってどんなとこ？</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
+      <div style="background:white;border-radius:14px;padding:16px;border:1.5px solid rgba(240,165,0,0.25);box-shadow:0 2px 12px rgba(240,165,0,0.08);">
+        <div style="font-size:28px;margin-bottom:8px;">🚇</div>
+        <div style="font-weight:700;color:#5C3A80;font-size:14px;margin-bottom:6px;">バンコク最強の交通拠点</div>
+        <div style="font-size:12px;color:#555;line-height:1.6;">BTSとMRTが交差する「アソーク」は、バンコク中心部への移動がどこへでもスムーズ。スワンナプーム空港へのエアポートリンクとも乗り換え1回で直結！</div>
+      </div>
+      <div style="background:white;border-radius:14px;padding:16px;border:1.5px solid rgba(26,122,110,0.2);box-shadow:0 2px 12px rgba(26,122,110,0.06);">
+        <div style="font-size:28px;margin-bottom:8px;">🛍️</div>
+        <div style="font-weight:700;color:#5C3A80;font-size:14px;margin-bottom:6px;">ショッピングが充実</div>
+        <div style="font-size:12px;color:#555;line-height:1.6;">ターミナル21（B級グルメのフードコートが超有名！）、エンポリウム・エムクオーティエ・エムスフィアの「EMディストリクト」が徒歩圏内に集結。1日じゃ回りきれない！</div>
+      </div>
+      <div style="background:white;border-radius:14px;padding:16px;border:1.5px solid rgba(232,101,74,0.2);box-shadow:0 2px 12px rgba(232,101,74,0.06);">
+        <div style="font-size:28px;margin-bottom:8px;">🍜</div>
+        <div style="font-weight:700;color:#5C3A80;font-size:14px;margin-bottom:6px;">食・カフェ・夜遊びも最高</div>
+        <div style="font-size:12px;color:#555;line-height:1.6;">おしゃれカフェや本格タイ料理から屋台グルメまで何でも揃う。深夜まで楽しめる夜遊びスポット「ソイカーボーイ」もすぐそこ。プロンポン側は落ち着いた雰囲気でカフェ巡りにも◎</div>
+      </div>
+      <div style="background:white;border-radius:14px;padding:16px;border:1.5px solid rgba(59,110,158,0.2);box-shadow:0 2px 12px rgba(59,110,158,0.06);">
+        <div style="font-size:28px;margin-bottom:8px;">🌺</div>
+        <div style="font-weight:700;color:#5C3A80;font-size:14px;margin-bottom:6px;">初バンコクでも安心</div>
+        <div style="font-size:12px;color:#555;line-height:1.6;">日本語が通じるお店や案内が多く、治安も比較的良好。「アソーク」はBTS×MRTの2路線が走る交通の要衝で、「プロンポン」は在タイ外国人も多い落ち着いたエリア。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- HOTEL CARDS -->
+<div class="section">
+  <h2 class="section-title">🏨 ホテル詳細</h2>
+  <div class="cards-grid">
+
+    <!-- Card 1: Tints of Blue -->
+    <div class="hotel-card">
+<div class="carousel" id="c1">
+  <div class="carousel-track" id="c1-track">
+    <div class="carousel-slide">
+      <img src="https://www.tintsofblue.com/wp-content/uploads/2022/08/DSC7001.jpg" alt="デラックスルーム" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+    <div class="carousel-slide">
+      <img src="https://www.tintsofblue.com/wp-content/uploads/2022/10/DSC07336-scaled.jpg" alt="ホテル外観" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+    <div class="carousel-slide">
+      <img src="https://www.tintsofblue.com/wp-content/uploads/2022/08/DSC05736.jpg" alt="屋上プール" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+  </div>
+  <button class="carousel-btn prev" onclick="prevSlide('c1')">&#8249;</button>
+  <button class="carousel-btn next" onclick="nextSlide('c1')">&#8250;</button>
+  <div class="carousel-dots"><div class="carousel-dot active" onclick="setSlide('c1',0)"></div><div class="carousel-dot " onclick="setSlide('c1',1)"></div><div class="carousel-dot " onclick="setSlide('c1',2)"></div></div>
+  <div class="carousel-num" style="color:#3B6E9E;">①</div>
+  <a href="https://www.agoda.com/ja-jp/tints-of-blue-hotel/hotel/bangkok-th.html" target="_blank" class="carousel-agoda">Agodaで見る ↗</a>
+</div>
+    <div class="carousel-slide">
+      <img src="https://www.tintsofblue.com/wp-content/uploads/2022/08/DSC05695.jpg" alt="客室" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+    <div class="carousel-slide">
+      <img src="https://www.tintsofblue.com/wp-content/uploads/2022/08/DSC05710-2.jpg" alt="客室インテリア" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+  </div>
+  <button class="carousel-btn prev" onclick="prevSlide('c1')">&#8249;</button>
+  <button class="carousel-btn next" onclick="nextSlide('c1')">&#8250;</button>
+  <div class="carousel-dots"><div class="carousel-dot active" onclick="setSlide('c1',0)"></div><div class="carousel-dot " onclick="setSlide('c1',1)"></div><div class="carousel-dot " onclick="setSlide('c1',2)"></div></div>
+  <div class="carousel-num" style="color:#3B6E9E;">①</div>
+  <a href="https://www.agoda.com/ja-jp/tints-of-blue-hotel/hotel/bangkok-th.html" target="_blank" class="carousel-agoda">Agodaで見る ↗</a>
+</div>
+      <div class="card-body">
+        <div class="card-name">ティンツ オブ ブルー ホテル</div>
+        <div class="card-room">デラックスルーム · ⭐⭐⭐ ブティック · Soi 27</div>
+        <div class="card-price-row">
+          <span class="card-price" style="color:#3B6E9E;">38,221円</span>
+          <span class="card-price-label">3泊合計（THB 7,897）</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-breakfast">🍳 朝食付き</span>
+          <span class="tag tag-pool">🏊 屋上プール</span>
+          <span class="tag tag-gym">💪 ジム</span>
+          <span class="tag tag-kitchen">🍳 キッチネット</span>
+        </div>
+        <div style="font-size:12px;color:#555;margin-bottom:10px;">
+          <strong style="color:#3B6E9E;">部屋:</strong> 28㎡ · 大きな窓とシティビュー · ボヘミアンデザイン · ミニバー · セーフティBOX · 40インチTV<br>
+          <strong style="color:#3B6E9E;">バス:</strong> シャワーのみ（バスタブなし）· スリッパ · 無料アメニティ
+        </div>
+        <div class="card-access">🚇 <strong style="color:#3B6E9E;">裏口利用で徒歩5分！</strong>〜22:00はアソーク駅まで新設裏口から徒歩5分でアクセス可。</div>
+        <a href="https://www.agoda.com/ja-jp/tints-of-blue-hotel/hotel/bangkok-th.html" target="_blank" class="card-link" style="background:#3B6E9E;">Agodaで確認する ↗</a>
+      </div>
+    </div>
+
+    <!-- Card 2: The Bless -->
+    <div class="hotel-card">
+<div class="carousel" id="c2">
+  <div class="carousel-track" id="c2-track">
+    <div class="carousel-slide">
+      <img src="https://www.blessresidence.com/images/1024x500/accommodation.slide.48.jpg" alt="グランドプレミアルーム" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+    <div class="carousel-slide">
+      <img src="https://www.blessresidence.com/images/1024x500/accommodation.slide.50.jpg" alt="ホテル外観" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+    <div class="carousel-slide">
+      <img src="https://www.blessresidence.com/images/1024x500/accommodation.slide.49.jpg" alt="屋上プール" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+  </div>
+  <button class="carousel-btn prev" onclick="prevSlide('c2')">&#8249;</button>
+  <button class="carousel-btn next" onclick="nextSlide('c2')">&#8250;</button>
+  <div class="carousel-dots"><div class="carousel-dot active" onclick="setSlide('c2',0)"></div><div class="carousel-dot " onclick="setSlide('c2',1)"></div><div class="carousel-dot " onclick="setSlide('c2',2)"></div></div>
+  <div class="carousel-num" style="color:#2E7D6B;">②</div>
+  <a href="https://www.agoda.com/ja-jp/bless-residence/hotel/bangkok-th.html" target="_blank" class="carousel-agoda">Agodaで見る ↗</a>
+</div>
+    <div class="carousel-slide">
+      <img src="https://www.blessresidence.com/images/1024x500/accommodation.slide.49.jpg" alt="リビングエリア" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+    <div class="carousel-slide">
+      <img src="https://www.blessresidence.com/images/1024x500/accommodation.slide.50.jpg" alt="バスルーム" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+  </div>
+  <button class="carousel-btn prev" onclick="prevSlide('c2')">&#8249;</button>
+  <button class="carousel-btn next" onclick="nextSlide('c2')">&#8250;</button>
+  <div class="carousel-dots"><div class="carousel-dot active" onclick="setSlide('c2',0)"></div><div class="carousel-dot " onclick="setSlide('c2',1)"></div><div class="carousel-dot " onclick="setSlide('c2',2)"></div></div>
+  <div class="carousel-num" style="color:#2E7D6B;">②</div>
+  <a href="https://www.agoda.com/ja-jp/bless-residence/hotel/bangkok-th.html" target="_blank" class="carousel-agoda">Agodaで見る ↗</a>
+</div>
+      <div class="card-body">
+        <div class="card-name">ザ ブレス ホテル &amp; レジデンス</div>
+        <div class="card-room">グランドプレミアルーム · ⭐⭐⭐⭐ · Soi 33</div>
+        <div class="card-price-row">
+          <span class="card-price" style="color:#2E7D6B;">30,042円</span>
+          <span class="card-price-label">3泊合計（THB 6,207）</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag" style="background:#FFF0F0;color:#B00020;">朝食なし</span>
+          <span class="tag tag-pool">🏊 屋上プール</span>
+          <span class="tag tag-gym">💪 ジム</span>
+          <span class="tag tag-kitchen">🍳 フルキッチン</span>
+        </div>
+        <div style="font-size:12px;color:#555;margin-bottom:10px;">
+          <strong style="color:#2E7D6B;">部屋:</strong> 40㎡広めのレイアウト · フローリング · 床から天井の窓 · ミニバー · ワークデスク · 32インチTV<br>
+          <strong style="color:#2E7D6B;">バス:</strong> <span style="color:#2E7D6B;font-weight:600;">レインシャワー＋バスタブ</span> · ウッドフロア · 基本アメニティ
+        </div>
+        <div class="card-access">🚇 BTS プロンポン → 徒歩8分 / Emporium徒歩5分 / EmQuartier徒歩10分</div>
+        <a href="https://www.agoda.com/ja-jp/bless-residence/hotel/bangkok-th.html" target="_blank" class="card-link" style="background:#2E7D6B;">Agodaで確認する ↗</a>
+      </div>
+    </div>
+
+    <!-- Card 4: The Connex (表示順3番目) -->
+    <div class="hotel-card">
+<div class="carousel" id="c4">
+  <div class="carousel-track" id="c4-track">
+    <div class="carousel-slide">
+      <img src="http://www.theconnexasoke.com/wp-content/uploads/2017/07/Superior-01.jpg" alt="スーペリアツインルーム" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+    <div class="carousel-slide">
+      <img src="http://www.theconnexasoke.com/wp-content/uploads/2017/08/Connect-103.jpg" alt="ホテル外観" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+    <div class="carousel-slide">
+      <img src="http://www.theconnexasoke.com/wp-content/uploads/2017/08/Connect-121.jpg" alt="CCafe＆ロビー" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+  </div>
+  <button class="carousel-btn prev" onclick="prevSlide('c4')">&#8249;</button>
+  <button class="carousel-btn next" onclick="nextSlide('c4')">&#8250;</button>
+  <div class="carousel-dots"><div class="carousel-dot active" onclick="setSlide('c4',0)"></div><div class="carousel-dot " onclick="setSlide('c4',1)"></div><div class="carousel-dot " onclick="setSlide('c4',2)"></div></div>
+  <div class="carousel-num" style="color:#4A1660;">④</div>
+  <a href="https://www.agoda.com/ja-jp/the-connex-asoke/hotel/bangkok-th.html" target="_blank" class="carousel-agoda">Agodaで見る ↗</a>
+</div>
+    <div class="carousel-slide">
+      <img src="http://www.theconnexasoke.com/wp-content/uploads/2017/07/Deluxe-01.jpg" alt="デラックスルーム" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+    <div class="carousel-slide">
+      <img src="http://www.theconnexasoke.com/wp-content/uploads/2017/08/Connect-103.jpg" alt="ロビー・エントランス" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+  </div>
+  <button class="carousel-btn prev" onclick="prevSlide('c4')">&#8249;</button>
+  <button class="carousel-btn next" onclick="nextSlide('c4')">&#8250;</button>
+  <div class="carousel-dots"><div class="carousel-dot active" onclick="setSlide('c4',0)"></div><div class="carousel-dot " onclick="setSlide('c4',1)"></div><div class="carousel-dot " onclick="setSlide('c4',2)"></div></div>
+  <div class="carousel-num" style="color:#4A1660;">④</div>
+  <a href="https://www.agoda.com/ja-jp/the-connex-asoke/hotel/bangkok-th.html" target="_blank" class="carousel-agoda">Agodaで見る ↗</a>
+</div>
+      <div class="card-body">
+        <div class="card-name">ザ コネックス アソーク</div>
+        <div class="card-room">スーペリアツインルーム · ブティックホテル · Soi 16</div>
+        <div class="card-price-row">
+          <span class="card-price" style="color:#4A1660;">20,368円</span>
+          <span class="card-price-label">3泊合計・最安値🎯</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag" style="background:#FFF0F0;color:#B00020;">朝食なし</span>
+          <span class="tag tag-nopool">プール×</span>
+          <span class="tag tag-nopool">ジム×</span>
+          <span class="tag" style="background:#EDE5FF;color:#4A1660;">☕ カフェ＆バー</span>
+          <span class="tag" style="background:#FFF8E8;color:#7A5010;">🛁 レインシャワー</span>
+        </div>
+        <div style="font-size:12px;color:#555;margin-bottom:10px;">
+          <strong style="color:#4A1660;">部屋:</strong> ツインベッド · ミニバー · 電気ケトル · フラットスクリーンTV · セーフティBOX · 無料WiFi<br>
+          <strong style="color:#4A1660;">バス:</strong> レインシャワー＋バスタブ · ヘアドライヤー · 無料アメニティ
+        </div>
+        <div class="card-access">🚇 BTS アソーク → <span style="color:#4A1660;font-weight:600;">徒歩2分</span> / Terminal 21 → 徒歩4分 ← 全候補中最高立地</div>
+        <a href="https://www.agoda.com/ja-jp/the-connex-asoke/hotel/bangkok-th.html" target="_blank" class="card-link" style="background:#4A1660;">Agodaで確認する ↗</a>
+      </div>
+    </div>
+
+    <!-- Card 3: Jasmine City (表示順4番目) -->
+    <div class="hotel-card">
+<div class="carousel" id="c3">
+  <div class="carousel-track" id="c3-track">
+    <div class="carousel-slide">
+      <img src="https://ak-d.tripcdn.com/images/0205n1200090qce1v4164_R_339_206_R5_D.jpg" alt="スーペリアスタジオ" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+    <div class="carousel-slide">
+      <img src="https://ak-d.tripcdn.com/images/200j11000000qyf8r3CEE_R_960_660_R5_D.jpg" alt="ホテル外観" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+    <div class="carousel-slide">
+      <img src="https://ak-d.tripcdn.com/images/020431200090qin2d6481_R_339_206_R5_D.jpg" alt="屋外プール" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+  </div>
+  <button class="carousel-btn prev" onclick="prevSlide('c3')">&#8249;</button>
+  <button class="carousel-btn next" onclick="nextSlide('c3')">&#8250;</button>
+  <div class="carousel-dots"><div class="carousel-dot active" onclick="setSlide('c3',0)"></div><div class="carousel-dot " onclick="setSlide('c3',1)"></div><div class="carousel-dot " onclick="setSlide('c3',2)"></div></div>
+  <div class="carousel-num" style="color:#8B6914;">③</div>
+  <a href="https://www.agoda.com/ja-jp/jasmine-city-hotel/hotel/bangkok-th.html" target="_blank" class="carousel-agoda">Agodaで見る ↗</a>
+</div>
+    <div class="carousel-slide">
+      <img src="https://ak-d.tripcdn.com/images/0205n1200090qce1v4164_R_339_206_R5_D.jpg" alt="客室（シティビュー）" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+    <div class="carousel-slide">
+      <img src="https://ak-d.tripcdn.com/images/020431200090qin2d6481_R_339_206_R5_D.jpg" alt="屋外プール" loading="lazy" onerror="this.parentElement.style.background='#1a1a2e';this.style.display='none'">
+    </div>
+  </div>
+  <button class="carousel-btn prev" onclick="prevSlide('c3')">&#8249;</button>
+  <button class="carousel-btn next" onclick="nextSlide('c3')">&#8250;</button>
+  <div class="carousel-dots"><div class="carousel-dot active" onclick="setSlide('c3',0)"></div><div class="carousel-dot " onclick="setSlide('c3',1)"></div><div class="carousel-dot " onclick="setSlide('c3',2)"></div></div>
+  <div class="carousel-num" style="color:#8B6914;">③</div>
+  <a href="https://www.agoda.com/ja-jp/jasmine-city-hotel/hotel/bangkok-th.html" target="_blank" class="carousel-agoda">Agodaで見る ↗</a>
+</div>
+      <div class="card-body">
+        <div class="card-name">ジャスミン シティ ホテル バンコク</div>
+        <div class="card-room">スーペリアステューディオ · ⭐⭐⭐⭐⭐ · Soi 23</div>
+        <div class="card-price-row">
+          <span class="card-price" style="color:#8B6914;">41,943円</span>
+          <span class="card-price-label">3泊合計（THB 8,603）</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag" style="background:#FFF0F0;color:#B00020;">朝食なし</span>
+          <span class="tag tag-pool">🏊 屋外プール</span>
+          <span class="tag tag-spa">💆 スパ</span>
+          <span class="tag tag-gym">💪 ジム・サウナ</span>
+          <span class="tag tag-kitchen">🍳 フルキッチン</span>
+        </div>
+        <div style="font-size:12px;color:#555;margin-bottom:10px;">
+          <strong style="color:#8B6914;">部屋:</strong> <span style="color:#8B6914;font-weight:600;">34㎡</span> · フルキッチン(冷蔵庫・電子レンジ・IH) · 42インチTV · ラップトップ対応金庫<br>
+          <strong style="color:#8B6914;">バス:</strong> バスタブ＋シャワー別 · バスローブ · スリッパ · 充実アメニティ
+        </div>
+        <div class="card-access">🚇 BTS アソーク → <span style="color:#8B6914;font-weight:600;">徒歩3分</span> / MRT スクンビット → 徒歩3分 / Terminal 21 → 徒歩5分</div>
+        <a href="https://www.agoda.com/ja-jp/jasmine-city-hotel/hotel/bangkok-th.html" target="_blank" class="card-link" style="background:#8B6914;">Agodaで確認する ↗</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- COMPARISON TABLE -->
+<div class="section">
+  <h2 class="section-title">📊 スペック比較表</h2>
+  <div class="comparison-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:160px;background:#2A1A35;">項目</th>
+          <th class="th1" style="color:#9DCFFF;">① ティンツ オブ ブルー</th>
+          <th class="th2" style="color:#9DFFDC;">② ザ ブレス</th>
+          <th class="th3" style="color:#FFD98A;">③ ジャスミン シティ</th>
+          <th class="th4" style="color:#D4B3FF;">④ ザ コネックス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>3泊合計料金</td>
+          <td>38,221円<br><small style="color:#888;">THB 7,897</small></td>
+          <td class="best-value"><strong style="color:#2E7D6B;">30,042円</strong><br><small style="color:#888;">THB 6,207</small></td>
+          <td>44,296円<br><small style="color:#888;">THB 9,152</small></td>
+          <td class="best-value"><strong style="color:#4A1660;">20,368円</strong><br><small style="color:#888;">最安値🎯</small></td>
+        </tr>
+        <tr>
+          <td>1泊あたり</td>
+          <td>12,740円<br><small>THB 2,632</small></td>
+          <td class="best-value">10,014円<br><small>THB 2,069</small></td>
+          <td>14,765円<br><small>THB 3,051</small></td>
+          <td class="best-value">6,789円<br><small>最安値🎯</small></td>
+        </tr>
+        <tr>
+          <td>星評価</td>
+          <td>⭐⭐⭐<br><small>ブティック3★</small></td>
+          <td>⭐⭐⭐⭐<br><small>4★</small></td>
+          <td class="highlight-cell">⭐⭐⭐⭐⭐<br><small>5★</small></td>
+          <td>⭐⭐⭐<br><small>ブティック</small></td>
+        </tr>
+        <tr>
+          <td>朝食</td>
+          <td class="highlight-cell">✅ 付き<br><small>ビュッフェ+選べる卵料理</small></td>
+          <td><span class="cross">✕ なし</span></td>
+          <td><span class="cross">✕ なし</span><br><small>別料金THB269〜</small></td>
+          <td><span class="cross">✕ なし</span><br><small>別料金THB269</small></td>
+        </tr>
+        <tr>
+          <td>部屋の広さ</td>
+          <td>~35㎡<br><small>デラックスルーム</small></td>
+          <td>広め<br><small>グランドプレミア</small></td>
+          <td><strong>34㎡</strong><br><small>スーペリアスタジオ</small></td>
+          <td>~30㎡<br><small>スーペリアツイン</small></td>
+        </tr>
+        <tr>
+          <td>バスルーム</td>
+          <td>シャワーのみ</td>
+          <td class="highlight-cell">レインシャワー<br>＋バスタブ🛁</td>
+          <td class="highlight-cell">バスタブ<br>＋別シャワー🛁</td>
+          <td>レインシャワー<br>＋バスタブ🛁</td>
+        </tr>
+        <tr>
+          <td>キッチン</td>
+          <td>キッチネット<br><small>冷蔵庫・電子レンジ・IH</small></td>
+          <td class="highlight-cell">フルキッチン<br><small>冷蔵庫・電子レンジ・IH</small></td>
+          <td class="highlight-cell">フルキッチン<br><small>冷蔵庫・電子レンジ・IH</small></td>
+          <td>冷蔵庫・電気ケトル<br><small>調理不可</small></td>
+        </tr>
+        <tr>
+          <td>プール</td>
+          <td><span class="check">✓</span> 屋上プール<br><small>シティビュー</small></td>
+          <td><span class="check">✓</span> 屋上プール<br><small>子供用プールも</small></td>
+          <td><span class="check">✓</span> 屋外プール<br><small>広め</small></td>
+          <td><span class="cross">✕ なし</span></td>
+        </tr>
+        <tr>
+          <td>スパ・サウナ</td>
+          <td><span class="cross">✕</span></td>
+          <td><span class="cross">✕</span></td>
+          <td class="highlight-cell"><span class="check">✓</span> スパ＋サウナ</td>
+          <td><span class="cross">✕</span></td>
+        </tr>
+        <tr>
+          <td>ジム</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✕</span></td>
+        </tr>
+        <tr>
+          <td>レストラン・カフェ</td>
+          <td><span class="check">✓</span> レストランあり</td>
+          <td><span class="check">✓</span> Morning Glory</td>
+          <td><span class="check">✓</span> 複数あり</td>
+          <td><span class="check">✓</span> CCafe＋バー</td>
+        </tr>
+        <tr>
+          <td>BTSまでの距離</td>
+          <td>🕐〜22:00 裏口から<strong>徒歩5分</strong><br><small>22時以降は無料トゥクトゥク</small></td>
+          <td>徒歩5〜8分<br><small>プロンポン駅</small></td>
+          <td class="highlight-cell"><strong>徒歩3分</strong><br><small>アソーク駅</small></td>
+          <td class="highlight-cell"><strong>徒歩2分</strong><br><small>アソーク駅</small></td>
+        </tr>
+        <tr>
+          <td>Terminal 21まで</td>
+          <td>裏口＋徒歩で〜22時は5分<br><small>プロンポン経由も可</small></td>
+          <td>15〜20分</td>
+          <td class="highlight-cell">徒歩5分</td>
+          <td class="highlight-cell">徒歩4分</td>
+        </tr>
+        <tr>
+          <td>ショッピングモール</td>
+          <td>やや遠め</td>
+          <td class="highlight-cell">Emporium<br>徒歩5分🛍️</td>
+          <td>Terminal 21<br>徒歩5分</td>
+          <td>Terminal 21<br>徒歩4分</td>
+        </tr>
+        <tr>
+          <td>ホテル規模</td>
+          <td>小規模42室<br><small>こじんまり感◎</small></td>
+          <td>中規模102室</td>
+          <td>大規模208室</td>
+          <td>小規模17室<br><small>超こじんまり</small></td>
+        </tr>
+        <tr>
+          <td>デザイン・雰囲気</td>
+          <td>ボヘミアン・<br>アート系🎨</td>
+          <td>クラシック・<br>エレガント</td>
+          <td>モダン・<br>ビジネス系</td>
+          <td>シック・<br>スタイリッシュ✨</td>
+        </tr>
+        <tr>
+          <td>無料駐車場</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>総合口コミ評価</td>
+          <td><span class="star">★★★★☆</span><br><small>9.3/10（KAYAK）</small></td>
+          <td><span class="star">★★★★</span><br><small>8.5〜9/10</small></td>
+          <td><span class="star">★★★★</span><br><small>8.5/10</small></td>
+          <td><span class="star">★★★★</span><br><small>8.4/10</small></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="price-note">💱 本日レート <strong>1 THB = 4.87円</strong>（2026年5月 Xe/Investing.com）で換算。③のスパ・朝食は別料金。全ホテルキャンセル無料での仮押さえ価格。</p>
+</div>
+
+<hr class="divider">
+
+<!-- PROS / CONS -->
+<div class="section">
+  <h2 class="section-title">✨ メリット &amp; デメリット</h2>
+  <div class="procon-grid">
+
+    <!-- Hotel 1 -->
+    <div class="procon-card">
+      <div class="procon-header" style="background:#3B6E9E;">
+        <span>①</span> ティンツ オブ ブルー
+      </div>
+      <div class="procon-body">
+        <div class="pros-label">◎ ここが良い</div>
+        <ul class="pros">
+          <li>朝食付きで実質コスパ最高（ビュッフェ＋選べる卵料理）</li>
+          <li>新設裏口から22時までアソーク駅まで<strong>徒歩5分</strong>！22時以降は無料トゥクトゥク</li>
+          <li>屋上プール＆テラスからスクンビットのシティビュー</li>
+          <li>ボヘミアンな内装でフォトジェニック💫 インスタ映え◎</li>
+          <li>無料自転車レンタルあり</li>
+          <li>スタッフが神対応と口コミ多数</li>
+        </ul>
+        <div class="cons-label">▲ ここに注意</div>
+        <ul class="cons">
+          <li>22時以降は裏口が閉まるためトゥクトゥク利用が必要</li>
+          <li>バスタブなし（シャワーのみ）</li>
+          <li>路地の奥にあり、夜は少し暗くて分かりにくい</li>
+          <li>部屋の防音がやや薄いとの口コミあり</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Hotel 2 -->
+    <div class="procon-card">
+      <div class="procon-header" style="background:#2E7D6B;">
+        <span>②</span> ザ ブレス ホテル
+      </div>
+      <div class="procon-body">
+        <div class="pros-label">◎ ここが良い</div>
+        <ul class="pros">
+          <li>4ホテル中 <strong>THBで最安値</strong>！コスパ最強クラス</li>
+          <li>レインシャワー＋バスタブ付きで贅沢バスタイム🛁</li>
+          <li>フルキッチン付きで自炊もOK（節約にも◎）</li>
+          <li>Emporium/EmQuartier/EmSphereが徒歩圏内でショッピング天国</li>
+          <li>屋上プール＆ビューバーでディナードリンクが映える</li>
+          <li>日本人ゲストからの評価高め（ウォシュレットあり）</li>
+        </ul>
+        <div class="cons-label">▲ ここに注意</div>
+        <ul class="cons">
+          <li>朝食なし（Morning Gloryで別料金必要）</li>
+          <li>ベッドが硬いという口コミが散見される</li>
+          <li>周辺エリアの治安がやや気になる夜道あり</li>
+          <li>テレビが32インチと比較的小さめ</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Hotel 3 -->
+    <div class="procon-card">
+      <div class="procon-header" style="background:#8B6914;">
+        <span>③</span> ジャスミン シティ
+      </div>
+      <div class="procon-body">
+        <div class="pros-label">◎ ここが良い</div>
+        <ul class="pros">
+          <li>5つ星の設備でスパ・サウナまで充実💆‍♀️</li>
+          <li>BTS アソーク徒歩3分・MRT直結の最強アクセス</li>
+          <li>Terminal 21まで徒歩5分でフードコートもすぐ</li>
+          <li>フルキッチン付きで長期滞在でも快適</li>
+          <li>バスローブ・スリッパなど上質アメニティ</li>
+          <li>日本語対応ブッフェ朝食オプション（別料金）</li>
+        </ul>
+        <div class="cons-label">▲ ここに注意</div>
+        <ul class="cons">
+          <li>4候補中<strong>最高値</strong>（1泊約13,120円）</li>
+          <li>朝食なし（追加でTHB269〜）</li>
+          <li>ホテルが古く内装の古さを感じる口コミあり</li>
+          <li>スクンビット沿いの部屋は交通騒音に注意</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Hotel 4 -->
+    <div class="procon-card">
+      <div class="procon-header" style="background:#4A1660;">
+        <span>④</span> ザ コネックス アソーク
+      </div>
+      <div class="procon-body">
+        <div class="pros-label">◎ ここが良い</div>
+        <ul class="pros">
+          <li><strong>BTS 徒歩2分</strong>の全候補中トップの立地👑</li>
+          <li>Terminal 21まで徒歩4分（食事・買い物が最便利）</li>
+          <li>17室のみの超小規模でスタッフの目が行き届く</li>
+          <li>おしゃれなCCafeのクロワッサン＆コーヒーが絶品</li>
+          <li>円換算で最安値グループ（コスパ◎）</li>
+          <li>ツインルームで女子旅に最適な配置</li>
+        </ul>
+        <div class="cons-label">▲ ここに注意</div>
+        <ul class="cons">
+          <li>プール・ジムがないため運動・リゾート感はゼロ</li>
+          <li>幹線道路沿いのため交通騒音あり（要高層階リクエスト）</li>
+          <li>キッチンなし・朝食なし（外食前提）</li>
+          <li>17室と小さいため繁忙期は融通が利きにくい場合も</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SUMMARY RECOMMENDATION -->
+  <div style="margin-top:28px;padding:20px;background:white;border-radius:14px;border:2px solid rgba(139,63,168,0.25);">
+    <h3 style="color:var(--plum);font-size:16px;margin-bottom:14px;">🐘 女子旅目的別おすすめ診断</h3>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+      <div style="padding:12px;background:#FDF5FF;border-radius:10px;border:1px solid rgba(139,63,168,0.15);">
+        <div style="font-weight:700;color:var(--plum);margin-bottom:5px;">🛍️ ショッピング重視なら</div>
+        <div style="font-size:13px;"><strong style="color:#4A1660;">④ コネックス（20,368円）</strong> or <strong style="color:#8B6914;">③ ジャスミン（44,296円）</strong><br>Terminal 21への徒歩アクセス最強。Emporium系も行きたいなら<strong style="color:#2E7D6B;">② ブレス（30,042円）</strong>も◎</div>
+      </div>
+      <div style="padding:12px;background:#F0FFF8;border-radius:10px;border:1px solid rgba(46,125,107,0.15);">
+        <div style="font-weight:700;color:#2E7D6B;margin-bottom:5px;">💰 コスパ重視なら</div>
+        <div style="font-size:13px;"><strong style="color:#3B6E9E;">① ティンツ</strong>が実は最強（朝食込みで比較するとほぼ最安）。純粋な宿泊費なら<strong style="color:#4A1660;">④ コネックス</strong>。</div>
+      </div>
+      <div style="padding:12px;background:#FFF8E8;border-radius:10px;border:1px solid rgba(139,105,20,0.15);">
+        <div style="font-weight:700;color:#8B6914;margin-bottom:5px;">🏊 リゾート気分・プール重視なら</div>
+        <div style="font-size:13px;"><strong style="color:#3B6E9E;">① ティンツ</strong>（屋上プール×シティビューが最高映え！）<br>7月は雨季でも屋上プールは快適◎</div>
+      </div>
+      <div style="padding:12px;background:#EDF3FF;border-radius:10px;border:1px solid rgba(59,110,158,0.15);">
+        <div style="font-weight:700;color:#3B6E9E;margin-bottom:5px;">💆 スパ・美容体験重視なら</div>
+        <div style="font-size:13px;"><strong style="color:#8B6914;">③ ジャスミン</strong>一択！スパ＋サウナが hotel内で完結。<br>ただしスパ料金は別途かかります。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>🐘 バンコク女子旅2026 · ホテル比較ページ · 作成日：2026年5月</p>
+  <p style="margin-top:6px;">全ホテルキャンセル無料・仮押さえ済み ✓ | 価格はAgoda掲載時の金額 | <span>楽しい旅を！ 🌺</span></p>
+</footer>
+
+
+<script>
+  const carousels = {};
+
+  function initCarousel(id) {
+    const total = document.querySelectorAll('#' + id + '-track .carousel-slide').length;
+    carousels[id] = { current: 0, total };
+
+    // Touch / swipe support
+    const el = document.getElementById(id);
+    let startX = 0, startY = 0, isDragging = false;
+
+    el.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      isDragging = true;
+    }, { passive: true });
+
+    el.addEventListener('touchend', e => {
+      if (!isDragging) return;
+      isDragging = false;
+      const dx = e.changedTouches[0].clientX - startX;
+      const dy = e.changedTouches[0].clientY - startY;
+      // Only swipe if horizontal movement is larger than vertical (avoid scroll conflict)
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 30) {
+        if (dx < 0) nextSlide(id);
+        else prevSlide(id);
+      }
+    }, { passive: true });
+
+    // Mouse drag (desktop)
+    el.addEventListener('mousedown', e => { startX = e.clientX; isDragging = true; });
+    el.addEventListener('mouseup', e => {
+      if (!isDragging) return;
+      isDragging = false;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 30) {
+        if (dx < 0) nextSlide(id);
+        else prevSlide(id);
+      }
+    });
+    el.addEventListener('mouseleave', () => { isDragging = false; });
+  }
+
+  function updateCarousel(id) {
+    const c = carousels[id];
+    document.getElementById(id + '-track').style.transform = 'translateX(-' + (c.current * 100) + '%)';
+    document.querySelectorAll('#' + id + ' .carousel-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === c.current);
+    });
+  }
+
+  function nextSlide(id) {
+    const c = carousels[id];
+    c.current = (c.current + 1) % c.total;
+    updateCarousel(id);
+  }
+  function prevSlide(id) {
+    const c = carousels[id];
+    c.current = (c.current - 1 + c.total) % c.total;
+    updateCarousel(id);
+  }
+  function setSlide(id, idx) {
+    carousels[id].current = idx;
+    updateCarousel(id);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    ['c1','c2','c3','c4'].forEach(id => {
+      if (document.getElementById(id)) initCarousel(id);
+    });
+  });
+</script>
+</body>
+</html>
